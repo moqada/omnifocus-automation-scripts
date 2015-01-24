@@ -1,16 +1,26 @@
 'use strict'
+del = require 'del'
+path = require 'path'
 gulp = require 'gulp'
 $ = (require 'gulp-load-plugins')()
 
 paths =
   src: 'src'
-  dist: 'build'
+  dest: 'build'
 
-gulp.task 'build', ->
+gulp.task 'clean', (cb) ->
+  del [paths.dest], cb
+
+gulp.task 'build', ['clean'], ->
   options =
-    getScpt: (path) ->
-      path.split('/').slice(-1)[0].split('.')[0] + '.scpt'
-  cmd = "osacompile -l JavaScript -o #{paths.dist}/<%= options.getScpt(file.path) %> <%= file.path %>"
+    destDir: (src) ->
+      dest = src.replace path.resolve(paths.src), path.resolve(paths.dest)
+      path.dirname dest
+    destFile: (src) ->
+      dir = options.destDir src
+      path.join dir, "#{path.basename(src, '.js')}.scpt"
+  cmd = "mkdir -p <%= options.destDir(file.path) %>"
+  cmd += "&& osacompile -l JavaScript -o <%= options.destFile(file.path) %> <%= file.path %>"
   gulp.src "#{paths.src}/**/*.js"
     .pipe $.using()
     .pipe $.exec cmd, options
