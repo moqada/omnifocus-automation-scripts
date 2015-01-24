@@ -1,0 +1,25 @@
+{
+  "name": "omnifocus-automation-scripts",
+  "version": "0.0.1",
+  "description": "Automation Scripts for OmniFocus",
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "gulp": "^3.8.10",
+    "gulp-exec": "^2.1.1",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-using": "0.0.1"
+  },
+  "scripts": {
+    "build": "gulp build"
+  },
+  "author": "moqada",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moqada/omnifocus-automation-scripts"
+  },
+  "keywords": [
+    "omnifocus",
+    "applescript"
+  ]
+}
