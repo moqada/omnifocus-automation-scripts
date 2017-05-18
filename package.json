@@ -4,11 +4,11 @@
   "description": "Automation Scripts for OmniFocus",
   "devDependencies": {
     "coffee-script": "^1.8.0",
-    "del": "^1.1.1",
+    "del": "^2.2.2",
     "gulp": "^3.8.10",
     "gulp-exec": "^2.1.1",
-    "gulp-load-plugins": "^0.8.0",
-    "gulp-using": "0.0.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-using": "0.1.1",
     "jshint": "^2.6.0"
   },
   "scripts": {
